@@ -11,6 +11,7 @@ Base = declarative_base()
 
 
 class BaseModel:
+
     """This class will defines all common attributes/methods
     for other classes
     """
@@ -28,6 +29,7 @@ class BaseModel:
             created_at: creation date
             updated_at: updated date
         """
+
         if kwargs:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
