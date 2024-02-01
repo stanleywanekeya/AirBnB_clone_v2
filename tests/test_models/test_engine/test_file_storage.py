@@ -63,11 +63,13 @@ class test_fileStorage(unittest.TestCase):
     def test_reload(self):
         """ Storage file is successfully loaded to __objects """
         new = BaseModel()
+        new_dict = new.to_dict()
         storage.save()
         storage.reload()
-        for obj in storage.all().values():
-            loaded = obj
-        self.assertEqual(new.to_dict()['id'], loaded.to_dict()['id'])
+        loaded_objects = storage.all().values()
+        self.assertTrue(loaded_object, "No object loaded from storage")
+        for loaded in loaded_object:
+            self.assertEqual(new_dict['id'], loaded.to_dict['id'])
 
     def test_reload_empty(self):
         """ Load from an empty file """
